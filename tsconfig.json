@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@rh/vite-config": ["packages/vite-config"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "module": "ESNext"
+  },
+  "moduleResolution": "node",
+  "types": ["node"]
+}
