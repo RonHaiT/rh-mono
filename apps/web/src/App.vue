@@ -1,7 +1,22 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterView } from "vue-router";
+</script>
 
 <template>
-  <div class="bg-amber-300">test tailwindcss</div>
+  <a-config-provider
+    :theme="{
+      token: {
+        colorPrimary: '#00b96b',
+      },
+      components: {
+        Radio: {
+          colorPrimary: '#000000',
+        },
+      },
+    }"
+  >
+    <RouterView />
+  </a-config-provider>
 </template>
 
 <style scoped></style>
