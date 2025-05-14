@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rh-mono/vite-config": "workspace:*",
     "@tailwindcss/vite": "^4.1.6",
     "ant-design-vue": "~4.2.6",
     "tailwindcss": "^4.1.6",

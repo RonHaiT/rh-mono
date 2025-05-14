@@ -10,7 +10,18 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.6",
+    "ant-design-vue": "~4.2.6",
+    "axios": "^1.9.0",
+    "less": "^4.3.0",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.3.0",
     "tailwindcss": "^4.1.6",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "unplugin-auto-import": "^19.2.0",
+    "unplugin-vue-components": "^28.5.0"
   }
 }

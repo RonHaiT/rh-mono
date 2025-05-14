@@ -1,7 +1,24 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAntdStore } from "@/stores/antd";
+const antdStore = useAntdStore();
+</script>
 
 <template>
-  <div class="bg-amber-300">test tailwindcss</div>
+  <a-config-provider
+    :theme="{
+      token: {
+        colorPrimary: antdStore.color,
+        borderRadius: antdStore.borderRadius,
+      },
+      components: {
+        Radio: {
+          colorPrimary: '#000000',
+        },
+      },
+    }"
+  >
+    <RouterView />
+  </a-config-provider>
 </template>
 
 <style scoped></style>
