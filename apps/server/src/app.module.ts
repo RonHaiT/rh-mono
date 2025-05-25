@@ -1,9 +1,43 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserModule } from './user/user.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/entities/user.entity';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { CacheModule } from './cache/cache.module';
+import * as path from 'path';
+const isProd = process.env.NODE_ENV === 'production';
 
 @Module({
-  imports: [],
+  imports: [
+    UserModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: [
+        isProd
+          ? path.join(__dirname, '../.env.prod')
+          : path.join(__dirname, '../.env'),
+      ],
+    }),
+    TypeOrmModule.forRootAsync({
+      useFactory(ConfigService: ConfigService) {
+        return {
+          type: 'mysql',
+          host: ConfigService.get('DB_HOST'),
+          port: ConfigService.get('DB_PORT'),
+          username: ConfigService.get('DB_USER'),
+          password: ConfigService.get('DB_PASSWD'),
+          database: ConfigService.get('DB_DATABASE'),
+          entities: [User],
+          synchronize: !isProd,
+          connectorPackage: 'mysql2',
+        };
+      },
+      inject: [ConfigService],
+    }),
+    CacheModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
