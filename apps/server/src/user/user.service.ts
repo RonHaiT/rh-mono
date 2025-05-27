@@ -22,15 +22,16 @@ export class UserService {
 
   // 用户注册
   async create(createUserDto: CreateUserDto) {
-    const { username, password, captcha, id } = createUserDto;
+    // captcha, id
+    const { username, password } = createUserDto;
 
     //缓存的验证码
-    const cacheCaptcha = await this.cacheService.get(id);
-    console.log('register', cacheCaptcha?.toUpperCase());
+    // const cacheCaptcha = await this.cacheService.get(id);
+    // console.log('register', cacheCaptcha?.toUpperCase());
 
-    if (captcha?.toUpperCase() !== cacheCaptcha?.toUpperCase()) {
-      throw new ApiException('验证码错误', ApiErrorCode.COMMON_CODE);
-    }
+    // if (captcha?.toUpperCase() !== cacheCaptcha?.toUpperCase()) {
+    //   throw new ApiException('验证码错误', ApiErrorCode.COMMON_CODE);
+    // }
 
     const existUser = await this.userRepository.findOne({
       where: { username },
@@ -54,8 +55,8 @@ export class UserService {
     const { username, password, captcha, id } = loginDto;
 
     //缓存的验证码
-    // const cacheCaptcha = await this.cacheService.get(id);
-    // console.log('login', cacheCaptcha?.toUpperCase());
+    const cacheCaptcha = await this.cacheService.get(id);
+
     // if (captcha?.toUpperCase() !== cacheCaptcha?.toUpperCase()) {
     //   throw new ApiException('验证码错误', ApiErrorCode.COMMON_CODE);
     // }

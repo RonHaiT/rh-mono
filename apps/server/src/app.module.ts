@@ -7,6 +7,7 @@ import { User } from './user/entities/user.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CacheModule } from './cache/cache.module';
 import { JwtModule } from '@nestjs/jwt';
+import { MenuModule } from './menu/menu.module';
 
 import * as path from 'path';
 const isProd = process.env.NODE_ENV === 'production';
@@ -31,7 +32,8 @@ const isProd = process.env.NODE_ENV === 'production';
           username: ConfigService.get('DB_USER'),
           password: ConfigService.get('DB_PASSWD'),
           database: ConfigService.get('DB_DATABASE'),
-          entities: [User],
+          entities: ['**/*.entity.js'],
+          autoLoadEntities: true,
           synchronize: !isProd,
           connectorPackage: 'mysql2',
         };
@@ -53,6 +55,7 @@ const isProd = process.env.NODE_ENV === 'production';
       },
     }),
     CacheModule,
+    MenuModule,
   ],
   controllers: [AppController],
   providers: [AppService],

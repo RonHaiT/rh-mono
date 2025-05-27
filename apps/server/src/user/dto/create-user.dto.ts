@@ -23,22 +23,22 @@ export class CreateUserDto {
   })
   password: string;
 
-  @IsNotEmpty({
-    message: 'id不能为空',
-  })
-  @ApiProperty({
-    example: '934e51cfff7b71ffc8ea',
-    description: 'id',
-  })
-  id: string;
+  // @IsNotEmpty({
+  //   message: 'id不能为空',
+  // })
+  // @ApiProperty({
+  //   example: '934e51cfff7b71ffc8ea',
+  //   description: 'id',
+  // })
+  // id: string;
 
-  @IsNotEmpty({
-    message: '验证码不能为空',
-  })
-  @Length(4, 4, { message: '验证码必须4位' })
-  @ApiProperty({
-    example: 'dasw',
-    description: '验证码',
-  })
-  captcha: string;
+  // @IsNotEmpty({
+  //   message: '验证码不能为空',
+  // })
+  // @Length(4, 4, { message: '验证码必须4位' })
+  // @ApiProperty({
+  //   example: 'dasw',
+  //   description: '验证码',
+  // })
+  // captcha: string;
 }
