@@ -22,13 +22,15 @@ export class HttpExceptionFilter implements ExceptionFilter {
         path: request.url,
         message: exception.getErrorMessage(),
       });
+      return;
     }
 
     response.status(status).json({
       statusCode: status,
       timestamp: new Date().toLocaleString(),
       path: request.url,
-      message,
+      message:
+        (exception.getResponse() as any).message || exception.getResponse(),
     });
   }
 }

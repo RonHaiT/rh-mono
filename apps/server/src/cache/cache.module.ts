@@ -23,5 +23,6 @@ import { createClient } from 'redis';
       inject: [ConfigService],
     },
   ],
+  exports: [CacheService],
 })
 export class CacheModule {}
