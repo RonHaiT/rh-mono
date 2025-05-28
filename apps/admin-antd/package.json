@@ -1,5 +1,5 @@
 {
-  "name": "@rh-mono/web",
+  "name": "@rh-mono/admin-antd",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,11 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.6",
     "ant-design-vue": "~4.2.6",
+    "axios": "^1.9.0",
+    "less": "^4.3.0",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.3.0",
+    "sass": "^1.89.0",
     "tailwindcss": "^4.1.6",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"

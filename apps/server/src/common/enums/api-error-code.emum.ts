@@ -5,4 +5,5 @@ export enum ApiErrorCode {
   USER_NOT_EXIST = 10003, // 用户id不存在
   PASSWORD_ERR = 10004, // 密码错误
   COMMON_CODE = 20000, //通用错误码,想偷懒就返回这个
+  FAIL = 50000, // 系统异常
 }

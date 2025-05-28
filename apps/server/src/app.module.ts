@@ -8,6 +8,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CacheModule } from './cache/cache.module';
 import { JwtModule } from '@nestjs/jwt';
 import { MenuModule } from './menu/menu.module';
+import { RoleModule } from './role/role.module';
 
 import * as path from 'path';
 const isProd = process.env.NODE_ENV === 'production';
@@ -56,6 +57,7 @@ const isProd = process.env.NODE_ENV === 'production';
     }),
     CacheModule,
     MenuModule,
+    RoleModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import * as crypto from 'crypto';
 import encry from '../../utils/crypto';
-import { Role } from 'src/menu/entities/role.entity';
+import { Role } from 'src/role/entities/role.entity';
 
 @Entity('rh_user')
 export class User {

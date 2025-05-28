@@ -5,8 +5,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev:admin": "pnpm --filter admin dev",
-    "dev:web": "pnpm --filter web dev",
+    "dev:admin-antd": "pnpm --filter admin-antd dev",
+    "dev:admin-ele": "pnpm --filter admin-ele dev",
+    "dev:web-antd": "pnpm --filter web-antd dev",
     "dev:server": "pnpm --filter server start:dev",
     "dev:all": "pnpm -r --filter ./apps/* run dev",
     "docs:dev": "pnpm --filter docs docs:dev"
@@ -21,7 +22,16 @@
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
-    "vue-tsc": "^2.2.8"
+    "vue-tsc": "^2.2.8",
+    "axios": "^1.9.0",
+    "less": "^4.3.0",
+    "sass": "^1.89.0",
+    "pinia": "^3.0.2",
+    "pinia-plugin-persistedstate": "^4.3.0",
+    "tailwindcss": "^4.1.6",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.1",
+    "ant-design-vue": "~4.2.6"
   },
   "workspaces": {
     "packages": [
