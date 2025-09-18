@@ -10,9 +10,11 @@ import {
 export class Menu {
   @PrimaryGeneratedColumn()
   id: number;
+
   //标题
   @Column({
     length: 20,
+    unique: true,
   })
   title: string;
 

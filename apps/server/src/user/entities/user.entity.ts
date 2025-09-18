@@ -39,8 +39,8 @@ export class User {
   @JoinTable({
     name: 'rh_user_role_relation', // 用户角色关系表
   })
+  
   roles: Role[]; //角色
-
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   create_time: Date;
 

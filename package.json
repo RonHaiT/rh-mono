@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev:admin-antd": "pnpm --filter admin-antd dev",
+    "dev:admin": "pnpm --filter admin dev",
     "dev:admin-ele": "pnpm --filter admin-ele dev",
-    "dev:web-antd": "pnpm --filter web-antd dev",
     "dev:server": "pnpm --filter server start:dev",
     "dev:all": "pnpm -r --filter ./apps/* run dev",
     "docs:dev": "pnpm --filter docs docs:dev"

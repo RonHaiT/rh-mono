@@ -12,7 +12,7 @@ async function bootstrap() {
     .setVersion('1.0') // 版本
     .addBearerAuth() // 添加认证
     .build();
-
+  app.setGlobalPrefix('api/v1');
   const document = SwaggerModule.createDocument(app, options);
   //配置swgger地址
   SwaggerModule.setup('/docs/api', app, document);

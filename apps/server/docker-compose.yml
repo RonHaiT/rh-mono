@@ -1,0 +1,29 @@
+# Use root/example as user/password credentials
+
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password # 9.0不支持
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    # (this is just an example, not intended to be a production configuration)
+    ports:
+      - 3306:3306
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - 6379:6379
+    command: redis-server --appendonly yes --requirepass rh_redis_password
+    environment:
+      - REDIS_PASSWORD=rh_redis_password
+    volumes:
+      - redis_data:/data
+
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
