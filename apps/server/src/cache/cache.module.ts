@@ -11,11 +11,25 @@ import { createClient } from 'redis';
     {
       provide: 'REDIS_CLIENT',
       async useFactory(configService: ConfigService) {
+        const enabled = configService.get('REDIS_ENABLED') === 'true';
+        if (!enabled) {
+          // 返回一个最小 no-op 客户端，避免调用处报错
+          return {
+            get: async () => null,
+            set: async () => {},
+            del: async () => 0,
+            exists: async () => 0,
+            flushAll: async () => 'OK',
+            on: () => {},
+            quit: async () => {},
+          } as any;
+        }
         const client = createClient({
           socket: {
             host: configService.get('RD_HOST'),
             port: configService.get('RD_PORT'),
           },
+          password: configService.get('RD_PASSWORD'),
         });
         await client.connect();
         return client;
